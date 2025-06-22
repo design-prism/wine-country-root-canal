@@ -2,81 +2,140 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
 import Image from "next/image"
-import { Award, Smile } from "lucide-react"
+import { BookOpen, Users, Heart } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function AboutPage() {
-  const credentials = [
-    { year: "1997", event: "Graduated from [Dental School Name]" },
-    { year: "2003", event: "Completed Endodontic Residency at [Institution Name]" },
-    { year: "2005", event: "Member of the American Association of Endodontists (AAE)" },
-    { year: "Current", event: "Dedicated to ongoing continuing education in advanced endodontics" },
+  const professionalMemberships = [
+    "American Dental Association",
+    "American Association Of Endodontists",
+    "California State Association Of Endodontists",
+    "Board Member for Redwood Dental Society",
   ]
 
   return (
     <>
       <Navbar />
       <PageShell
-        title="Meet Dr. Craig Wm. Anderson"
+        title="Meet Dr. Craig Anderson"
         description="Your experienced and compassionate endodontist in Santa Rosa."
       >
         <div className="container mx-auto px-4 md:px-6 space-y-16 md:space-y-24">
-          <FadeInSection className="grid md:grid-cols-3 gap-8 lg:gap-12 items-center">
-            <div className="md:col-span-1 rounded-sm overflow-hidden shadow-lg">
+          {/* Introduction Section */}
+          <FadeInSection className="grid md:grid-cols-3 gap-8 lg:gap-12 items-start">
+            <div className="md:col-span-1 rounded-sm overflow-hidden shadow-lg sticky top-28">
               <Image
-                src="/placeholder.svg?width=400&height=500"
-                alt="Dr. Craig Wm. Anderson"
+                src="/images/dr-craig-anderson.jpg"
+                alt="Dr. Craig Anderson, Endodontist"
                 width={400}
                 height={500}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover object-top" // Added object-top to better frame the headshot
+                priority // Add priority as this is likely an important image for LCP on this page
               />
             </div>
-            <div className="md:col-span-2">
-              <h2 className="font-serif text-3xl text-brand-merlot mb-6">
-                A Commitment to Excellence and Patient Comfort
-              </h2>
-              <p className="text-lg text-brand-dark-text/80 mb-4">
-                Dr. Craig Wm. Anderson has been dedicated to providing specialized dental care since 1997. With a focus
-                on endodontics, he combines extensive experience with a genuine passion for helping patients achieve
-                optimal dental health and relief from pain.
-              </p>
-              <p className="text-lg text-brand-dark-text/80 mb-6">
-                "My philosophy is centered on providing the highest standard of care in a comfortable and reassuring
-                environment. I believe in clear communication, ensuring patients understand their treatment options and
-                feel confident in the care they receive. Saving natural teeth and restoring smiles is incredibly
-                rewarding."
-              </p>
-              <div className="bg-brand-cream p-6 rounded-sm shadow-md">
-                <Smile className="w-10 h-10 text-brand-merlot mb-3" />
-                <p className="font-serif text-2xl text-brand-merlot">Over 2,300+ Pain-Free Cases Completed</p>
-                <p className="text-brand-dark-text/70">Bringing relief and restoring smiles with expert care.</p>
+            <div className="md:col-span-2 space-y-8">
+              <div>
+                <h2 className="font-serif text-3xl text-brand-merlot mb-6">A Philosophy of Care</h2>
+                <div className="text-lg text-brand-dark-text/80 space-y-4">
+                  <p>
+                    Excellence in dentistry begins with a careful diagnosis and treatment plan to establish the goals we
+                    will achieve together. Communication and long-term relationships are important to us. Let us know
+                    what is on your mind and ask questions. We will help you realize an investment in yourself pays
+                    dividends for a lifetime. We are caring, skilled professionals, dedicated to simplifying what is
+                    often a very complicated and confusing area of health care.
+                  </p>
+                  <p>
+                    We want all our patients to be informed and knowledgeable about their dental health care, from
+                    treatment plans and services, to insurance coverage.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <h2 className="font-serif text-3xl text-brand-merlot mb-6">My Journey to Endodontics</h2>
+                <div className="text-lg text-brand-dark-text/80 space-y-4">
+                  <p>
+                    I decided to become a dentist because I enjoy working with people, I love science and the results
+                    are immediate and gratifying. I have been practicing dentistry since 1997. In 2003, I went back to
+                    school to specialize in endodontics. I have been specializing solely in endodontics since 2005. This
+                    practice is truly my life’s work and is the culmination of decades of hard work and a distinct
+                    vision. It is a privilege to be practicing as an endodontist and I challenge myself every day to
+                    improve my services and patient care any way I can.
+                  </p>
+                </div>
               </div>
             </div>
           </FadeInSection>
 
-          <FadeInSection className="bg-white p-8 md:p-12 rounded-sm shadow-xl">
-            <h2 className="font-serif text-3xl text-brand-merlot mb-8 text-center">
-              Credentials & Professional Journey
-            </h2>
-            <div className="relative pl-8">
-              {/* Timeline Line */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-rose-beige/30 rounded-full ml-[calc(0.375rem-0.5px)]"></div>
-              {credentials.map((item, index) => (
-                <div key={index} className="mb-8 relative">
-                  <div className="absolute -left-[calc(0.75rem+4px)] top-1 w-4 h-4 bg-brand-rose-beige rounded-full border-2 border-white"></div>
-                  <p className="font-semibold text-brand-dark-text text-lg mb-1">{item.year}</p>
-                  <p className="text-brand-dark-text/80">{item.event}</p>
-                </div>
-              ))}
+          {/* Education & Memberships Grid */}
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Education Section */}
+            <FadeInSection>
+              <Card className="h-full bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                <CardHeader className="flex-row items-center gap-4">
+                  <BookOpen className="w-10 h-10 text-brand-merlot shrink-0" />
+                  <CardTitle className="font-serif text-2xl text-brand-merlot">
+                    Education & Continuing Education
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-brand-dark-text/80 space-y-4">
+                  <p>
+                    Before becoming an endodontist, I attended University of Southern California for my undergraduate
+                    education as well as for dental school. After graduation, I completed my General Practice Residency
+                    at Rancho Los Amigos Medical Center. I practiced general dentistry for five years before
+                    specializing in endodontics at University of Southern California.
+                  </p>
+                  <p>
+                    I am always searching for better, higher quality endodontic treatments for my patients. I love
+                    learning about new technologies and approaches to my work, and how these may benefit those who come
+                    see me. I enjoy lecturing on endodontics to ensure emerging dentists have the most comprehensive
+                    education.
+                  </p>
+                  <p>
+                    I believe in having well-rounded knowledge of all aspects of dentistry, and not just an
+                    understanding of root canals. I frequently attend many continuing education courses in all aspects
+                    of dentistry. I have found that this is of paramount importance when it comes to my patients dental
+                    health, diagnoses, and treatment of complex cases.
+                  </p>
+                </CardContent>
+              </Card>
+            </FadeInSection>
+
+            <div className="space-y-12">
+              {/* Professional Memberships Section */}
+              <FadeInSection>
+                <Card className="bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                  <CardHeader className="flex-row items-center gap-4">
+                    <Users className="w-10 h-10 text-brand-merlot shrink-0" />
+                    <CardTitle className="font-serif text-2xl text-brand-merlot">Professional Memberships</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-brand-dark-text/80 list-disc pl-5">
+                      {professionalMemberships.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </FadeInSection>
+
+              {/* Outside the Office Section */}
+              <FadeInSection>
+                <Card className="bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                  <CardHeader className="flex-row items-center gap-4">
+                    <Heart className="w-10 h-10 text-brand-merlot shrink-0" />
+                    <CardTitle className="font-serif text-2xl text-brand-merlot">Outside the Office</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-brand-dark-text/80">
+                      My twin boys make for a very busy family life. If there is an unusual free moment then I enjoy
+                      listening to music, reading, and going to museums.
+                    </p>
+                  </CardContent>
+                </Card>
+              </FadeInSection>
             </div>
-            <div className="text-center mt-10">
-              <Award className="w-10 h-10 text-brand-merlot mx-auto mb-2" />
-              <p className="text-lg text-brand-dark-text/80">
-                Dr. Anderson is an active member of the American Association of Endodontists, American Dental
-                Association, and the California Dental Association.
-              </p>
-            </div>
-          </FadeInSection>
+          </div>
         </div>
       </PageShell>
       <Footer />
