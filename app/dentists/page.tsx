@@ -115,14 +115,22 @@ export default function ForDentistsPage() {
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {valueProps.map((prop) => (
-                <Card key={prop.title} className="bg-white shadow-lg border-l-4 border-brand-rose-beige">
-                  <CardHeader>
-                    <div className="flex items-center text-brand-merlot mb-2">
-                      {React.cloneElement(prop.icon, { className: "w-7 h-7 mr-3" })}
-                      <CardTitle className="font-serif text-2xl">{prop.title}</CardTitle>
+                <Card key={prop.title} className="bg-white shadow-lg border-l-4 border-brand-rose-beige flex flex-col">
+                  <CardHeader className="pb-4">
+                    {" "}
+                    {/* Adjusted bottom padding */}
+                    <div className="flex items-center">
+                      <div className="flex-shrink-0 mr-4 rounded-full p-3 bg-brand-merlot/10">
+                        {" "}
+                        {/* Icon wrapper for spacing */}
+                        {React.cloneElement(prop.icon, { className: "w-7 h-7 text-brand-merlot" })}
+                      </div>
+                      <CardTitle className="font-serif text-2xl text-brand-merlot">{prop.title}</CardTitle>
                     </div>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-grow">
+                    {" "}
+                    {/* Added flex-grow to ensure consistent card height if descriptions vary */}
                     <p className="text-brand-dark-text/80">{prop.description}</p>
                   </CardContent>
                 </Card>

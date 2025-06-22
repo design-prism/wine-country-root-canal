@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { FadeInSection } from "@/components/fade-in-section"
 import { MapPin, Phone, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote } from "lucide-react"
 import Image from "next/image"
@@ -162,19 +161,19 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-3 gap-8">
               {[
                 {
-                  name: "Patient A.",
-                  quote: "Exceptional care and a very comfortable experience. Dr. Anderson is fantastic!",
-                  avatarQuery: "smiling person",
+                  name: "Sharon",
+                  quote:
+                    "Highly Recommend! Let's be honest, no one is ever thrilled about getting a root canal. But, Dr Anderson and his staff made it a breeze! I felt completely comfortable and well taken care of.",
                 },
                 {
-                  name: "Patient B.",
-                  quote: "I was anxious, but the team made me feel at ease. My tooth feels great now. Thank you!",
-                  avatarQuery: "relieved person",
+                  name: "Sita Z.",
+                  quote:
+                    "From the first phone call to days after my root canal, all I can describe is a wonderful experience. Dr Anderson personally calling me the following day was an especially great personal touch.",
                 },
                 {
-                  name: "Patient C.",
-                  quote: "Professional, efficient, and truly caring. I highly recommend Wine Country Root Canal.",
-                  avatarQuery: "happy client",
+                  name: "Lizandro R.",
+                  quote:
+                    "They are the best! I had an awful tooth infection... they were able to fit me in first thing in the morning the very next day. They made sure I was comfortable and had no discomfort during the whole procedure.",
                 },
               ].map((testimonial, index) => (
                 <Card key={index} className="bg-white shadow-md border-t-4 border-brand-rose-beige rounded-sm">
@@ -182,13 +181,6 @@ export default function HomePage() {
                     <Quote className="w-8 h-8 text-brand-rose-beige/50 mb-4" />
                     <p className="text-brand-dark-text/90 mb-6 italic">"{testimonial.quote}"</p>
                     <div className="flex items-center">
-                      <Avatar className="h-10 w-10 mr-3">
-                        <AvatarImage
-                          src={`/placeholder.svg?width=40&height=40&query=${testimonial.avatarQuery}`}
-                          alt={testimonial.name}
-                        />
-                        <AvatarFallback>{testimonial.name.substring(0, 1)}</AvatarFallback>
-                      </Avatar>
                       <p className="font-semibold text-brand-dark-text">{testimonial.name}</p>
                     </div>
                   </CardContent>

@@ -98,6 +98,13 @@ export default function Navbar() {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/privacy" legacyBehavior passHref>
+                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold")}>
+                  Privacy & Terms
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -156,6 +163,9 @@ export default function Navbar() {
                 </Link>
                 <Link href="/contact" onClick={closeMobileMenu} className="py-2 hover:text-brand-merlot">
                   Contact & Map
+                </Link>
+                <Link href="/privacy" onClick={closeMobileMenu} className="py-2 hover:text-brand-merlot">
+                  Privacy & Terms
                 </Link>
               </nav>
 
