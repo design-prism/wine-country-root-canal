@@ -6,6 +6,7 @@ import { BookOpen, Users, Heart } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { MinimalistVimeoPlayer } from "@/components/minimalist-vimeo-player"
 
 export default function AboutPage() {
   const professionalMemberships = [
@@ -141,24 +142,14 @@ export default function AboutPage() {
           <FadeInSection>
             <h2 className="font-serif text-3xl text-brand-merlot mb-6 text-center">Learn More</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <AspectRatio ratio={16 / 9} className="rounded-sm overflow-hidden shadow-lg">
-                <iframe
-                  src="https://player.vimeo.com/video/1095465301?title=0&byline=0&portrait=0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                  title="Welcome to Wine Country Root Canal"
-                ></iframe>
-              </AspectRatio>
-              <AspectRatio ratio={16 / 9} className="rounded-sm overflow-hidden shadow-lg">
-                <iframe
-                  src="https://player.vimeo.com/video/1095465278?title=0&byline=0&portrait=0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                  title="Meet Dr. Craig Anderson"
-                ></iframe>
-              </AspectRatio>
+              <MinimalistVimeoPlayer
+                videoId="1095465301"
+                title="Post Root Canal Treatment Symptoms and Feelings"
+              />
+              <MinimalistVimeoPlayer
+                videoId="1095465278"
+                title="What is a Root Canal"
+              />
             </div>
           </FadeInSection>
         </div>
