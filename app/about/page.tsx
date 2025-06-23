@@ -140,16 +140,30 @@ export default function AboutPage() {
           </div>
           {/* Video Introductions */}
           <FadeInSection>
-            <h2 className="font-serif text-3xl text-brand-merlot mb-6 text-center">Learn More</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <MinimalistVimeoPlayer
-                videoId="1095465301"
-                title="Post Root Canal Treatment Symptoms and Feelings"
-              />
-              <MinimalistVimeoPlayer
-                videoId="1095465278"
-                title="What is a Root Canal"
-              />
+            <h2 className="font-serif text-3xl text-brand-merlot mb-8 text-center">Learn More</h2>
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-4">
+                <h3 className="font-serif text-xl text-brand-merlot">Post Treatment Experience</h3>
+                <p className="text-brand-dark-text/80 text-sm leading-relaxed">
+                  Dr. Anderson explains what to expect after your root canal treatment, including common sensations 
+                  and the healing process. Learn about post-treatment care and when to contact our office.
+                </p>
+                <MinimalistVimeoPlayer
+                  videoId="1095465301"
+                  title="Post Root Canal Treatment Symptoms and Feelings"
+                />
+              </div>
+              <div className="space-y-4">
+                <h3 className="font-serif text-xl text-brand-merlot">What's a Root Canal</h3>
+                <p className="text-brand-dark-text/80 text-sm leading-relaxed">
+                  Discover what a root canal procedure involves as Dr. Anderson breaks down the treatment process 
+                  in simple terms. Understand why root canals are necessary and how they save your natural teeth.
+                </p>
+                <MinimalistVimeoPlayer
+                  videoId="1095465278"
+                  title="What is a Root Canal"
+                />
+              </div>
             </div>
           </FadeInSection>
         </div>
