@@ -1,5 +1,8 @@
+import React from "react"
 import { PageShell } from "@/components/page-shell"
 import { Star, QuoteIcon } from "lucide-react"
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 
 interface Testimonial {
   id: number
@@ -22,7 +25,7 @@ const realTestimonials: Testimonial[] = [
     id: 2,
     name: "Lizandro Reyes",
     quote:
-      "They are the best! I had an awful tooth infection that needed a root canal, I contacted their office and they were able to fit me in first thing in the morning the very next day. They answered any questions i had prior to the procedure and after the dr and his assistant made sure i was comfortable and had no discomfort during the whole procedure. They even went the extra mile to remove some of the plaque on my tooth and made sure I was very very numb so I wouldn’t feel a thing! I would definitely recommend this office one of the best dentist visits I’ve had ever.",
+      "They are the best! I had an awful tooth infection that needed a root canal, I contacted their office and they were able to fit me in first thing in the morning the very next day. They answered any questions i had prior to the procedure and after the dr and his assistant made sure i was comfortable and had no discomfort during the whole procedure. They even went the extra mile to remove some of the plaque on my tooth and made sure I was very very numb so I wouldn't feel a thing! I would definitely recommend this office one of the best dentist visits I've had ever.",
     source: "Google Review - a month ago",
     rating: 5,
   },
@@ -78,7 +81,7 @@ const realTestimonials: Testimonial[] = [
     id: 9,
     name: "William Grafeld",
     quote:
-      "Wow!!! Going to an Endodontist for a root canal was something I wanted to avoid. Just thinking of the procedure raised my blood pressure. Dr. Anderson calmed me down and after a “few visits”to his office, I was ready to go. The procedure proved painless and easy to endure. Actually it was no big deal!!! A few hours now after the root canal and feeling no residual sensation. This Doctor is really good!!! A skilled, highly competent master of his craft. Shout out to his excellent team. Very efficient and professional staff. Hopefully will never need another root canal, but if I do it’s back to Dr. Anderson.",
+      'Wow!!! Going to an Endodontist for a root canal was something I wanted to avoid. Just thinking of the procedure raised my blood pressure. Dr. Anderson calmed me down and after a "few visits" to his office, I was ready to go. The procedure proved painless and easy to endure. Actually it was no big deal!!! A few hours now after the root canal and feeling no residual sensation. This Doctor is really good!!! A skilled, highly competent master of his craft. Shout out to his excellent team. Very efficient and professional staff. Hopefully will never need another root canal, but if I do it\'s back to Dr. Anderson.',
     source: "Google Review - 3 years ago",
     rating: 5,
   },
@@ -94,7 +97,7 @@ const realTestimonials: Testimonial[] = [
     id: 11,
     name: "Gerry Kelsall",
     quote:
-      "I came in in pain, and left comfortable. The procedure was painless, the doctor explained everything he was doing in advance, and the staff was friendly and very competent. Having a root canal is not something I look forward to, but this was not an unpleasant experience at all. I highly recommend Wine Country Root Canal if you are in need of one. I’m writing this review eight hours after the procedure and I’m still a pain free happy camper.",
+      "I came in in pain, and left comfortable. The procedure was painless, the doctor explained everything he was doing in advance, and the staff was friendly and very competent. Having a root canal is not something I look forward to, but this was not an unpleasant experience at all. I highly recommend Wine Country Root Canal if you are in need of one. I'm writing this review eight hours after the procedure and I'm still a pain free happy camper.",
     source: "Google Review - 4 years ago",
     rating: 5,
   },
@@ -149,7 +152,7 @@ const realTestimonials: Testimonial[] = [
     id: 18,
     name: "MIKEY",
     quote:
-      "I had a wonderful experience at Wine Country Root Canal. I can’t believe I describe a root canal as wonderful. Absolutely no pain during the procedure. The staff is very nice and attentive. I really liked how Dr Anderson was so polite.",
+      "I had a wonderful experience at Wine Country Root Canal. I can't believe I describe a root canal as wonderful. Absolutely no pain during the procedure. The staff is very nice and attentive. I really liked how Dr Anderson was so polite.",
     source: "Google Review - 4 years ago",
     rating: 5,
   },
@@ -211,7 +214,7 @@ const realTestimonials: Testimonial[] = [
     id: 26,
     name: "Madison Capps",
     quote:
-      "I had Dr yadegr helping me yesterday and I couldn’t be more thankful for him. I was a last minute add into his schedule and he didn’t rush me or make me feel unwelcome. He took such amazing care of me and I am truly thankful I was referred to him.",
+      "I had Dr yadegr helping me yesterday and I couldn't be more thankful for him. I was a last minute add into his schedule and he didn't rush me or make me feel unwelcome. He took such amazing care of me and I am truly thankful I was referred to him.",
     source: "Google Review - 5 years ago",
     rating: 5,
   },
@@ -226,7 +229,7 @@ const realTestimonials: Testimonial[] = [
     id: 28,
     name: "Grisel Buendia",
     quote:
-      "The best dental experience I’ve EVER had. I wish Dr. Yadegar was a General dentist because I’d switch doctors right away.",
+      "The best dental experience I've EVER had. I wish Dr. Yadegar was a General dentist because I'd switch doctors right away.",
     source: "Google Review - 5 years ago",
     rating: 5,
   },
@@ -298,7 +301,7 @@ const realTestimonials: Testimonial[] = [
     id: 37,
     name: "Natalie Strauss",
     quote:
-      "I never thought a root canal would be relaxing, but that’s exactly what it was. Very calm and reassuring staff. Would go again if I ever needed :)",
+      "I never thought a root canal would be relaxing, but that's exactly what it was. Very calm and reassuring staff. Would go again if I ever needed :)",
     source: "Google Review - 5 years ago",
     rating: 5,
   },
@@ -306,39 +309,43 @@ const realTestimonials: Testimonial[] = [
 
 export default function TestimonialsPage() {
   return (
-    <PageShell
-      title="Patient Testimonials"
-      description="Hear what our patients have to say about their experience at Wine Country Root Canal."
-      heroImageUrl="/images/wine-country-vineyard.jpg"
-    >
-      <div className="container mx-auto px-4 py-8 md:px-6 md:py-12">
-        <div className="space-y-8">
-          {realTestimonials.map((testimonial) => (
-            <div key={testimonial.id} className="border-b border-brand-cream/50 pb-8 last:border-b-0 last:pb-0">
-              <div className="mb-2">
-                <h3 className="text-xl font-semibold text-brand-merlot">{testimonial.name}</h3>
-                {testimonial.source && <p className="text-xs text-brand-dark-text/60 mt-0.5">{testimonial.source}</p>}
+    <>
+      <Navbar />
+      <PageShell
+        title="Patient Testimonials"
+        description="Hear what our patients have to say about their experience at Wine Country Root Canal."
+        heroImageUrl="/images/wine-country-vineyard.jpg"
+      >
+        <div className="container mx-auto px-4 py-8 md:px-6 md:py-12">
+          <div className="space-y-8">
+            {realTestimonials.map((testimonial) => (
+              <div key={testimonial.id} className="border-b border-brand-cream/50 pb-8 last:border-b-0 last:pb-0">
+                <div className="mb-2">
+                  <h3 className="text-xl font-semibold text-brand-merlot">{testimonial.name}</h3>
+                  {testimonial.source && <p className="text-xs text-brand-dark-text/60 mt-0.5">{testimonial.source}</p>}
+                </div>
+                <div className="flex items-center mb-3">
+                  {Array(testimonial.rating)
+                    .fill(0)
+                    .map((_, i) => (
+                      <Star key={`filled-${i}`} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  {Array(5 - testimonial.rating)
+                    .fill(0)
+                    .map((_, i) => (
+                      <Star key={`empty-${i}`} className="h-5 w-5 text-gray-300" />
+                    ))}
+                </div>
+                <blockquote className="relative">
+                  <QuoteIcon className="absolute -top-1 -left-2 w-8 h-8 text-brand-rose-beige/30 transform -scale-x-100" />
+                  <p className="text-base text-brand-dark-text/80 leading-relaxed pl-4 italic">{testimonial.quote}</p>
+                </blockquote>
               </div>
-              <div className="flex items-center mb-3">
-                {Array(testimonial.rating)
-                  .fill(0)
-                  .map((_, i) => (
-                    <Star key={`filled-${i}`} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  ))}
-                {Array(5 - testimonial.rating)
-                  .fill(0)
-                  .map((_, i) => (
-                    <Star key={`empty-${i}`} className="h-5 w-5 text-gray-300" />
-                  ))}
-              </div>
-              <blockquote className="relative">
-                <QuoteIcon className="absolute -top-1 -left-2 w-8 h-8 text-brand-rose-beige/30 transform -scale-x-100" />
-                <p className="text-base text-brand-dark-text/80 leading-relaxed pl-4 italic">{testimonial.quote}</p>
-              </blockquote>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </PageShell>
+      </PageShell>
+      <Footer />
+    </>
   )
 }
