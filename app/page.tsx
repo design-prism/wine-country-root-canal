@@ -33,33 +33,36 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen bg-brand-cream text-brand-dark-text">
       <Navbar />
       <main className="flex-grow">
-        {/* Simplified Hero Section */}
+        {/* Hero Section */}
         <section id="home" className="relative h-dvh w-full flex items-center overflow-hidden">
-          {/* Video Background Layer */}
-          <div className="absolute inset-0 z-0">
+          {/* Video Background Container - This div fills the section */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
             <iframe
               src={`https://player.vimeo.com/video/${vimeoVideoId}?autoplay=1&loop=1&muted=1&background=1&autopause=0&controls=0&title=0&byline=0&portrait=0`}
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               title="Wine Country Vineyards Background Video - Rolling Hills"
-              className="opacity-25"
+              className="opacity-25" // Keep opacity class, remove positioning/sizing classes
               style={{
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                width: "auto",
-                height: "auto",
+                width: "auto", // Let minWidth/minHeight dictate size
+                height: "auto", // Let minWidth/minHeight dictate size
                 minWidth: "100%",
                 minHeight: "100%",
                 transform: "translate(-50%, -50%)",
-                pointerEvents: "none",
+                pointerEvents: "none", // Keep if no interaction with video is needed
               }}
             ></iframe>
           </div>
 
-          {/* Content Layer */}
-          <div className="relative z-10 container mx-auto px-4 md:px-6 w-full">
-            <div className="max-w-xs sm:max-w-md lg:max-w-lg bg-brand-cream p-6 sm:p-8 md:p-12 rounded-sm shadow-2xl animate-fade-in">
+          {/* Overlay for text contrast */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-brand-cream via-brand-cream/50 to-transparent" />
+
+          {/* Content */}
+          <div className="relative z-20 container mx-auto px-4 md:px-6 w-full">
+            <div className="max-w-xs sm:max-w-md lg:max-w-lg bg-brand-cream/95 backdrop-blur-sm p-6 sm:p-8 md:p-12 rounded-sm shadow-xl animate-fade-in">
               <h2 className="font-serif text-lg sm:text-xl md:text-2xl text-brand-rose-beige mb-2 sm:mb-3">
                 Wine Country Root Canal
               </h2>
@@ -183,6 +186,15 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+            <div className="mt-12 md:mt-16 text-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-transparent border border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream transition-colors duration-300 ease-in-out px-8 py-3 text-base font-semibold shadow-sm"
+              >
+                <Link href="/testimonials">View More Testimonials</Link>
+              </Button>
             </div>
           </FadeInSection>
         </section>
