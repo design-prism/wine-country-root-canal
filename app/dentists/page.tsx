@@ -5,8 +5,8 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, Download, Send, Users, Microscope, Zap, ArrowRight } from "lucide-react"
+import { Card, CardContent, CardTitle } from "@/components/ui/card"
+import { CheckCircle, Download, Send, Users, Microscope, Zap, ArrowRight, FileText, PhoneCall } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 import Link from "next/link"
 
@@ -48,51 +48,49 @@ export default function ForDentistsPage() {
     <>
       <Navbar />
 
-      {/* Updated Custom Hero Section for Dentists Page with Video Background */}
+      {/* Hero Section - Optimized for Mobile */}
       <section className="relative w-full bg-brand-cream text-brand-dark-text overflow-hidden">
-        {/* Video Background Container - This div fills the section */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <iframe
             src={`https://player.vimeo.com/video/${vimeoVideoId}?autoplay=1&loop=1&muted=1&background=1&autopause=0&controls=0&title=0&byline=0&portrait=0`}
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             title="Wine Country Vineyards Background Video - Rolling Hills"
-            className="opacity-15" // For subtlety
+            className="opacity-15"
             style={{
-              position: "absolute", // Positioned within the parent div
+              position: "absolute",
               top: 0,
               left: 0,
-              width: "100%", // Fill parent div's width
-              height: "100%", // Fill parent div's height
+              width: "100%",
+              height: "100%",
             }}
           ></iframe>
         </div>
-        {/* Gradient overlay for text contrast */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-cream via-brand-cream/80 to-brand-cream/50 z-10" />
 
-        <div className="relative z-20 container mx-auto px-4 md:px-6 min-h-[450px] md:min-h-[500px] flex flex-col justify-center">
-          <div className="max-w-2xl py-12 md:py-16 animate-fade-in">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-merlot leading-tight mb-6">
+        <div className="relative z-20 container mx-auto px-4 md:px-6 min-h-[calc(100svh-80px)] sm:min-h-[400px] md:min-h-[450px] flex flex-col justify-center py-12 sm:py-0">
+          <div className="max-w-xl animate-fade-in text-center sm:text-left">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-merlot leading-tight mb-4">
               Elevating Endodontic Care, Together.
             </h1>
-            <p className="text-lg md:text-xl text-brand-dark-text/80 mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg text-brand-dark-text/80 mb-8 leading-relaxed">
               Partner with Wine Country Root Canal for advanced diagnostics, seamless referrals, and exceptional
               outcomes for your patients.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
               <Button
                 size="lg"
-                className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-8 py-3 text-base font-semibold shadow-md transition-transform hover:scale-105"
+                className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-6 py-3 text-sm sm:text-base font-semibold shadow-md transition-transform hover:scale-105 w-full sm:w-auto"
                 asChild
               >
                 <Link href="#referral-process" onClick={scrollToReferral}>
-                  Make a Referral <ArrowRight className="ml-2 h-5 w-5" />
+                  Make a Referral <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot/5 px-8 py-3 text-base font-semibold shadow-md transition-transform hover:scale-105"
+                className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot/5 px-6 py-3 text-sm sm:text-base font-semibold shadow-md transition-transform hover:scale-105 w-full sm:w-auto"
                 asChild
               >
                 <Link href="/technology">Explore Our Technology</Link>
@@ -107,110 +105,129 @@ export default function ForDentistsPage() {
         description="Providing exceptional endodontic care for your patients in Santa Rosa and beyond."
         hideTitleSection={true}
       >
-        <div className="container mx-auto px-4 md:px-6 space-y-16 md:space-y-24">
-          {/* Value Propositions */}
+        <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-20">
+          {/* Value Propositions - Mobile Optimized */}
           <FadeInSection>
-            <h2 className="font-serif text-3xl text-brand-merlot mb-8 text-center">
+            <h2 className="font-serif text-2xl sm:text-3xl text-brand-merlot mb-8 text-center">
               Your Trusted Partner in Endodontics
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {valueProps.map((prop) => (
-                <Card key={prop.title} className="bg-white shadow-lg border-l-4 border-brand-rose-beige flex flex-col">
-                  <CardHeader className="pb-4">
-                    {" "}
-                    {/* Adjusted bottom padding */}
-                    <div className="flex items-center">
-                      <div className="flex-shrink-0 mr-4 rounded-full p-3 bg-brand-merlot/10">
-                        {" "}
-                        {/* Icon wrapper for spacing */}
-                        {React.cloneElement(prop.icon, { className: "w-7 h-7 text-brand-merlot" })}
-                      </div>
-                      <CardTitle className="font-serif text-2xl text-brand-merlot">{prop.title}</CardTitle>
+                <Card
+                  key={prop.title}
+                  className="bg-white shadow-lg border-l-4 border-brand-rose-beige flex flex-col p-4 sm:p-6"
+                >
+                  <div className="flex items-center mb-3">
+                    <div className="flex-shrink-0 mr-3 sm:mr-4 rounded-full p-2 sm:p-3 bg-brand-merlot/10">
+                      {React.cloneElement(prop.icon, { className: "w-6 h-6 sm:w-7 sm:w-7 text-brand-merlot" })}
                     </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    {" "}
-                    {/* Added flex-grow to ensure consistent card height if descriptions vary */}
-                    <p className="text-brand-dark-text/80">{prop.description}</p>
+                    <CardTitle className="font-serif text-xl sm:text-2xl text-brand-merlot">{prop.title}</CardTitle>
+                  </div>
+                  <CardContent className="p-0 flex-grow">
+                    <p className="text-sm sm:text-base text-brand-dark-text/80">{prop.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </FadeInSection>
 
-          {/* Technology Highlights */}
+          {/* Technology Highlights - Mobile Optimized */}
           <FadeInSection className="text-center">
-            <h2 className="font-serif text-3xl text-brand-merlot mb-4">Leveraging Advanced Technology</h2>
-            <p className="text-lg text-brand-dark-text/80 mb-8 max-w-2xl mx-auto">
+            <h2 className="font-serif text-2xl sm:text-3xl text-brand-merlot mb-4">Leveraging Advanced Technology</h2>
+            <p className="text-base sm:text-lg text-brand-dark-text/80 mb-8 max-w-2xl mx-auto">
               Our investment in cutting-edge technology like Cone Beam CT (CBCT) and surgical operating microscopes
               allows for superior diagnostics and treatment outcomes.
             </p>
-            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="bg-brand-cream p-6 rounded-sm shadow-md">
-                <Microscope className="w-10 h-10 text-brand-merlot mx-auto mb-2" />
-                <h3 className="font-semibold text-xl text-brand-dark-text">Surgical Microscopes</h3>
-                <p className="text-sm text-brand-dark-text/70">Enhanced visualization for complex cases.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto">
+              <div className="bg-brand-cream p-6 rounded-sm shadow-md text-center">
+                <Microscope className="w-10 h-10 text-brand-merlot mx-auto mb-3" />
+                <h3 className="font-semibold text-lg sm:text-xl text-brand-dark-text">Surgical Microscopes</h3>
+                <p className="text-sm text-brand-dark-text/70 mt-1">Enhanced visualization for complex cases.</p>
               </div>
-              <div className="bg-brand-cream p-6 rounded-sm shadow-md">
-                <Zap className="w-10 h-10 text-brand-merlot mx-auto mb-2" /> {/* Placeholder for CBCT */}
-                <h3 className="font-semibold text-xl text-brand-dark-text">CBCT Imaging</h3>
-                <p className="text-sm text-brand-dark-text/70">Detailed 3D views for accurate diagnosis.</p>
+              <div className="bg-brand-cream p-6 rounded-sm shadow-md text-center">
+                <Zap className="w-10 h-10 text-brand-merlot mx-auto mb-3" />
+                <h3 className="font-semibold text-lg sm:text-xl text-brand-dark-text">CBCT Imaging</h3>
+                <p className="text-sm text-brand-dark-text/70 mt-1">Detailed 3D views for accurate diagnosis.</p>
               </div>
             </div>
             <Button
               variant="outline"
-              className="mt-8 border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream"
+              className="mt-8 border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream w-full sm:w-auto"
               asChild
             >
               <Link href="/technology">Learn More About Our Technology</Link>
             </Button>
           </FadeInSection>
 
-          {/* Referral Process */}
-          <FadeInSection id="referral-process" className="bg-white p-8 md:p-12 rounded-sm shadow-xl scroll-mt-20">
-            <h2 className="font-serif text-3xl text-brand-merlot mb-6 text-center">Easy Referral Process</h2>
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-              <div>
-                <h3 className="font-semibold text-xl text-brand-dark-text mb-3">Online Referral Form</h3>
-                <p className="text-brand-dark-text/80 mb-4">
+          {/* Referral Process - Mobile Optimized */}
+          <FadeInSection
+            id="referral-process"
+            className="bg-white p-6 sm:p-8 md:p-12 rounded-sm shadow-xl scroll-mt-20"
+          >
+            <h2 className="font-serif text-2xl sm:text-3xl text-brand-merlot mb-8 text-center">
+              Easy Referral Process
+            </h2>
+            <div className="space-y-8">
+              <div className="text-center sm:text-left">
+                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 mb-3">
+                  <Send className="w-7 h-7 text-brand-merlot shrink-0" />
+                  <h3 className="font-semibold text-xl sm:text-2xl text-brand-dark-text">Online Referral Form</h3>
+                </div>
+                <p className="text-brand-dark-text/80 mb-4 text-sm sm:text-base">
                   Submit referrals quickly and securely through our online portal (Coming Soon).
                 </p>
-                <Button className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 w-full md:w-auto" disabled>
-                  <Send className="w-4 h-4 mr-2" /> Online Referral (Coming Soon)
+                <Button className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 w-full sm:w-auto" disabled>
+                  Online Referral (Coming Soon)
                 </Button>
               </div>
-              <div>
-                <h3 className="font-semibold text-xl text-brand-dark-text mb-3">Downloadable Referral Form</h3>
-                <p className="text-brand-dark-text/80 mb-4">
+
+              <hr className="border-brand-rose-beige/30" />
+
+              <div className="text-center sm:text-left">
+                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 mb-3">
+                  <FileText className="w-7 h-7 text-brand-merlot shrink-0" />
+                  <h3 className="font-semibold text-xl sm:text-2xl text-brand-dark-text">Downloadable Referral Form</h3>
+                </div>
+                <p className="text-brand-dark-text/80 mb-4 text-sm sm:text-base">
                   Alternatively, download our PDF referral form and email or fax it to our office.
                 </p>
                 <Button
                   variant="outline"
-                  className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream w-full md:w-auto"
+                  className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream w-full sm:w-auto"
                   asChild
                 >
                   <a href="/placeholder-referral-form.pdf" download>
                     <Download className="w-4 h-4 mr-2" /> Download PDF Form
                   </a>
                 </Button>
-                <p className="text-xs text-brand-dark-text/70 mt-2">Fax: (707) 555-1235 (Placeholder)</p>
+                <p className="text-xs text-brand-dark-text/70 mt-3">Fax: (707) 555-1235 (Placeholder)</p>
               </div>
             </div>
-            <p className="text-center mt-8 text-brand-dark-text/80">
-              We typically contact referred patients within 24-48 hours to schedule their appointment. For urgent cases,
-              please call our office directly.
-            </p>
+            <div className="mt-10 text-center bg-brand-cream p-4 rounded-md">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <PhoneCall className="w-5 h-5 text-brand-merlot" />
+                <h4 className="font-semibold text-brand-dark-text">Urgent Cases?</h4>
+              </div>
+              <p className="text-sm text-brand-dark-text/80">
+                We typically contact referred patients within 24-48 hours. For urgent matters, please call our office
+                directly at{" "}
+                <a href="tel:+17075233636" className="font-semibold text-brand-merlot hover:underline">
+                  (707) 523-3636
+                </a>
+                .
+              </p>
+            </div>
           </FadeInSection>
 
-          {/* Send Referral CTA */}
-          <FadeInSection className="text-center py-12">
-            <h2 className="font-serif text-3xl text-brand-merlot mb-4">Refer Your Patient Today</h2>
-            <p className="text-xl text-brand-dark-text/80 mb-8 max-w-xl mx-auto">
+          {/* Send Referral CTA - Mobile Optimized */}
+          <FadeInSection className="text-center py-10">
+            <h2 className="font-serif text-2xl sm:text-3xl text-brand-merlot mb-4">Refer Your Patient Today</h2>
+            <p className="text-base sm:text-lg text-brand-dark-text/80 mb-8 max-w-xl mx-auto">
               We look forward to collaborating with you to provide the best possible care for your patients.
             </p>
             <Button
               size="lg"
-              className="bg-brand-rose-beige text-brand-dark-text hover:bg-brand-merlot hover:text-brand-cream px-10 py-3 text-lg"
+              className="bg-brand-rose-beige text-brand-dark-text hover:bg-brand-merlot hover:text-brand-cream px-8 sm:px-10 py-3 text-base w-full sm:w-auto"
               asChild
             >
               <Link href="/contact">Contact Our Office</Link>
