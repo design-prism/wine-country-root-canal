@@ -36,23 +36,17 @@ export default function HomePage() {
         {/* Hero Section */}
         <section id="home" className="relative h-dvh w-full flex items-center overflow-hidden">
           {/* Video Background Container - This div fills the section */}
-          <div className="absolute inset-0 z-0 overflow-hidden">
-            <iframe
-              src={`https://player.vimeo.com/video/${vimeoVideoId}?autoplay=1&loop=1&muted=1&background=1&autopause=0&controls=0&title=0&byline=0&portrait=0`}
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              title="Wine Country Vineyards Background Video - Rolling Hills"
-              className="opacity-25" // Keep opacity class, remove positioning/sizing classes
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                width: "max(100vw, 177.77vh)", // Use the larger of viewport width or 16:9 ratio width
-                height: "max(100vh, 56.25vw)", // Use the larger of viewport height or 16:9 ratio height
-                transform: "translate(-50%, -50%)",
-                pointerEvents: "none", // Keep if no interaction with video is needed
-              }}
-            ></iframe>
+          <div className="video-background-container">
+            {/* Video wrapper for better sizing control */}
+            <div className="video-background-wrapper">
+              <iframe
+                src={`https://player.vimeo.com/video/${vimeoVideoId}?autoplay=1&loop=1&muted=1&background=1&autopause=0&controls=0&title=0&byline=0&portrait=0`}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title="Wine Country Vineyards Background Video - Rolling Hills"
+                className="video-background-iframe opacity-25"
+              ></iframe>
+            </div>
           </div>
 
           {/* Overlay for text contrast */}
