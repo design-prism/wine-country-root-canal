@@ -59,11 +59,15 @@ export default function ForDentistsPage() {
             title="Wine Country Vineyards Background Video - Rolling Hills"
             className="opacity-15" // For subtlety
             style={{
-              position: "absolute", // Positioned within the parent div
-              top: 0,
-              left: 0,
-              width: "100%", // Fill parent div's width
-              height: "100%", // Fill parent div's height
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              width: "177.77vh", // 16:9 aspect ratio width based on viewport height
+              height: "100vh",
+              minWidth: "100vw",
+              minHeight: "56.25vw", // 16:9 aspect ratio height based on viewport width
+              transform: "translate(-50%, -50%)",
+              pointerEvents: "none",
             }}
           ></iframe>
         </div>

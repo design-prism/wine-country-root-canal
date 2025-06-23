@@ -47,10 +47,10 @@ export default function HomePage() {
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                width: "auto", // Let minWidth/minHeight dictate size
-                height: "auto", // Let minWidth/minHeight dictate size
-                minWidth: "100%",
-                minHeight: "100%",
+                width: "177.77vh", // 16:9 aspect ratio width based on viewport height
+                height: "100vh",
+                minWidth: "100vw",
+                minHeight: "56.25vw", // 16:9 aspect ratio height based on viewport width
                 transform: "translate(-50%, -50%)",
                 pointerEvents: "none", // Keep if no interaction with video is needed
               }}
