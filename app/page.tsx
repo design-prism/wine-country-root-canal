@@ -47,10 +47,8 @@ export default function HomePage() {
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                width: "177.77vh", // 16:9 aspect ratio width based on viewport height
-                height: "100vh",
-                minWidth: "100vw",
-                minHeight: "56.25vw", // 16:9 aspect ratio height based on viewport width
+                width: "max(100vw, 177.77vh)", // Use the larger of viewport width or 16:9 ratio width
+                height: "max(100vh, 56.25vw)", // Use the larger of viewport height or 16:9 ratio height
                 transform: "translate(-50%, -50%)",
                 pointerEvents: "none", // Keep if no interaction with video is needed
               }}
