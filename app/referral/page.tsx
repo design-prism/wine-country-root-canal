@@ -1,29 +1,14 @@
 "use client"
 
-import React, { useEffect } from "react"
+import React from "react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, Clock, FileText, Send } from "lucide-react"
+import { Phone, Mail, Clock, Send } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 
 export default function ReferralPage() {
-  useEffect(() => {
-    // Load JotForm script dynamically
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = 'https://form.jotform.com/jsform/251807740544054'
-    script.async = true
-    document.body.appendChild(script)
-
-    return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script)
-      }
-    }
-  }, [])
 
   return (
     <>
@@ -52,15 +37,28 @@ export default function ReferralPage() {
                     </p>
                   </div>
 
-                  {/* JotForm Container */}
+                  {/* JotForm iFrame Container */}
                   <div className="jotform-container">
-                    <div id="jotform-251807740544054" className="jotform-form">
-                      {/* JotForm will be inserted here via the script */}
-                      <div className="text-center py-8 text-brand-dark-text/60">
-                        <FileText className="w-8 h-8 mx-auto mb-2" />
-                        <p>Loading referral form...</p>
-                      </div>
-                    </div>
+                    <iframe
+                      src="https://form.jotform.com/251807740544054"
+                      title="Patient Referral Form - Wine Country Root Canal"
+                      width="100%"
+                      height="600"
+                      frameBorder="0"
+                      marginHeight={0}
+                      marginWidth={0}
+                      scrolling="auto"
+                      allowTransparency="true"
+                      allow="geolocation; microphone; camera"
+                      style={{
+                        minWidth: '100%',
+                        maxWidth: '100%',
+                        border: 'none',
+                        background: 'transparent'
+                      }}
+                    >
+                      Loading Patient Referral Form...
+                    </iframe>
                   </div>
                 </CardContent>
               </Card>
@@ -139,48 +137,38 @@ export default function ReferralPage() {
           width: 100%;
           max-width: 100%;
           margin: 0 auto;
+          position: relative;
+          overflow: hidden;
+          border-radius: 8px;
         }
 
         .jotform-container iframe {
           width: 100% !important;
-          min-height: 600px;
+          height: 600px;
           border: none !important;
           margin: 0 auto;
           background: transparent;
+          display: block;
         }
 
         /* Mobile responsive adjustments */
         @media (max-width: 768px) {
-          .jotform-container {
-            padding: 0;
-            margin: 0;
-          }
-          
           .jotform-container iframe {
-            min-height: 800px;
+            height: 800px;
           }
         }
 
-        /* Remove any default JotForm margins/padding that might cause horizontal scroll */
-        :global(.form-all) {
-          margin: 0 auto !important;
-          padding: 0 !important;
-          max-width: 100% !important;
-        }
-
-        :global(.form-line) {
-          padding-left: 10px !important;
-          padding-right: 10px !important;
-        }
-
-        /* Ensure form elements don't overflow on small screens */
-        @media (max-width: 480px) {
-          :global(.form-textbox),
-          :global(.form-dropdown),
-          :global(.form-textarea) {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
+        /* Tablet adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .jotform-container iframe {
+            height: 700px;
           }
+        }
+
+        /* Ensure proper loading appearance */
+        .jotform-container {
+          background: #f8f9fa;
+          border: 1px solid rgba(139, 69, 19, 0.1);
         }
       `}</style>
     </>
