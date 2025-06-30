@@ -34,13 +34,6 @@ export default function ForDentistsPage() {
     },
   ]
 
-  const scrollToReferral = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault()
-    const referralSection = document.getElementById("referral-process")
-    if (referralSection) {
-      referralSection.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
-  }
 
   const vimeoVideoId = "1095456147"
 
@@ -89,7 +82,7 @@ export default function ForDentistsPage() {
                 className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-8 py-3 text-base font-semibold shadow-md transition-transform hover:scale-105"
                 asChild
               >
-                <Link href="#referral-process" onClick={scrollToReferral}>
+                <Link href="/referral">
                   Make a Referral <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -177,10 +170,12 @@ export default function ForDentistsPage() {
               <div>
                 <h3 className="font-semibold text-xl text-brand-dark-text mb-3">Online Referral Form</h3>
                 <p className="text-brand-dark-text/80 mb-4">
-                  Submit referrals quickly and securely through our online portal (Coming Soon).
+                  Submit referrals quickly and securely through our online portal.
                 </p>
-                <Button className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 w-full md:w-auto" disabled>
-                  <Send className="w-4 h-4 mr-2" /> Online Referral (Coming Soon)
+                <Button className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 w-full md:w-auto" asChild>
+                  <Link href="/referral">
+                    <Send className="w-4 h-4 mr-2" /> Submit Online Referral
+                  </Link>
                 </Button>
               </div>
               <div>

@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { FadeInSection } from "@/components/fade-in-section"
-import { MapPin, Phone, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote } from "lucide-react"
+import { MapPin, Phone, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -137,6 +137,56 @@ export default function HomePage() {
                   <h3 className="font-serif text-xl text-brand-dark-text">{service.title}</h3>
                 </div>
               ))}
+            </div>
+          </FadeInSection>
+        </section>
+
+        {/* Patient Portal CTA Section */}
+        <section className="py-16 md:py-20 bg-brand-cream">
+          <FadeInSection className="container mx-auto px-4 md:px-6">
+            <div className="max-w-4xl mx-auto">
+              <Card className="bg-white/80 border-brand-merlot/20 shadow-xl">
+                <CardContent className="p-8 md:p-12 text-center">
+                  <div className="flex justify-center mb-6">
+                    <div className="bg-brand-merlot/10 p-4 rounded-full">
+                      <ExternalLink className="w-12 h-12 text-brand-merlot" />
+                    </div>
+                  </div>
+                  <h2 className="font-serif text-2xl md:text-3xl font-bold text-brand-merlot mb-4">
+                    Complete Your Forms Before Your Visit
+                  </h2>
+                  <p className="text-lg text-brand-dark-text/80 mb-8 max-w-2xl mx-auto">
+                    Save time and streamline your appointment by completing your patient forms online through our secure portal. 
+                    It's quick, convenient, and HIPAA compliant.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <Button 
+                      size="lg" 
+                      className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-8 py-3"
+                      asChild
+                    >
+                      <a 
+                        href="https://winecountryrootcanal.dentalsymphony.com/Patient/NewPatient.aspx" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Access Patient Portal
+                      </a>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="lg"
+                      className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream px-8 py-3"
+                      asChild
+                    >
+                      <Link href="/forms">
+                        Learn More About Forms
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </FadeInSection>
         </section>
