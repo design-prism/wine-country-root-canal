@@ -87,12 +87,24 @@ export function PageShell({
       )}
 
       {!hideTitleSection && !heroImageUrl && !heroVimeoVideoId && !heroContent && (
-        <FadeInSection className="bg-white py-12 md:py-16 text-center border-b border-brand-cream">
-          <div className="container mx-auto px-4 md:px-6">
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-brand-merlot mb-3">{title}</h1>
-            {description && <p className="text-lg text-brand-dark-text/80 max-w-2xl mx-auto">{description}</p>}
-          </div>
-        </FadeInSection>
+        <section className="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream/50 py-16 md:py-20 text-center border-b border-brand-cream overflow-hidden">
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 opacity-5" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(139, 69, 19, 0.3) 1px, transparent 0)`,
+            backgroundSize: '24px 24px'
+          }}></div>
+          
+          <FadeInSection className="relative z-10">
+            <div className="container mx-auto px-4 md:px-6">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-brand-merlot mb-6 leading-tight animate-fade-in">{title}</h1>
+              {description && (
+                <p className="text-lg md:text-xl text-brand-dark-text/80 max-w-3xl mx-auto leading-relaxed animate-fade-in">
+                  {description}
+                </p>
+              )}
+            </div>
+          </FadeInSection>
+        </section>
       )}
 
       <div

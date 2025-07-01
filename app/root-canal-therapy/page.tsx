@@ -1,12 +1,12 @@
+import React from "react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { PageShell } from "@/components/page-shell"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { AlertTriangle, HelpCircle, DollarSign, Smile } from "lucide-react"
+import { AlertTriangle, HelpCircle, DollarSign, Smile, BriefcaseMedical, ShieldCheck, Heart, Zap, Thermometer, Activity } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 import Link from "next/link"
-import Image from "next/image" // Added import
 
 export default function RootCanalTherapyPage() {
   const faqItems = [
@@ -32,53 +32,124 @@ export default function RootCanalTherapyPage() {
     },
   ]
 
+  const symptoms = [
+    {
+      icon: <Zap />,
+      title: "Persistent Pain",
+      description: "Constant or throbbing tooth pain that doesn't go away"
+    },
+    {
+      icon: <Thermometer />,
+      title: "Temperature Sensitivity",
+      description: "Sharp pain when consuming hot or cold foods and drinks"
+    },
+    {
+      icon: <Activity />,
+      title: "Gum Swelling",
+      description: "Tenderness or swelling in the gums around the affected tooth"
+    },
+    {
+      icon: <AlertTriangle />,
+      title: "Tooth Discoloration",
+      description: "Darkening or discoloration of the affected tooth"
+    }
+  ]
+
   return (
     <>
       <Navbar />
-      <PageShell
-        title="Root Canal Therapy"
-        description="Gentle, effective treatment to relieve pain and save your natural tooth."
-        heroImageUrl="/placeholder.svg?width=1200&height=400"
-      >
+      
+      {/* Custom Root Canal Hero Section */}
+      <section className="relative w-full bg-gradient-to-br from-brand-cream via-white to-brand-rose-beige/20 text-brand-dark-text overflow-hidden">
+        {/* Medical pattern overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `radial-gradient(circle at 20px 20px, rgba(139, 69, 19, 0.2) 2px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
+        
+        {/* Main hero content */}
+        <div className="relative z-10 container mx-auto px-4 md:px-6 py-16 md:py-24">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Medical icons */}
+            <div className="flex justify-center items-center gap-6 md:gap-8 mb-8 animate-fade-in">
+              <div className="bg-brand-merlot/10 p-4 rounded-full">
+                <BriefcaseMedical className="w-12 h-12 md:w-16 md:h-16 text-brand-merlot" />
+              </div>
+              <div className="bg-brand-rose-beige/20 p-4 rounded-full">
+                <ShieldCheck className="w-12 h-12 md:w-16 md:h-16 text-brand-merlot" />
+              </div>
+              <div className="bg-brand-merlot/10 p-4 rounded-full">
+                <Heart className="w-12 h-12 md:w-16 md:h-16 text-brand-merlot" />
+              </div>
+            </div>
+            
+            {/* Title and description */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-merlot leading-tight mb-6 animate-fade-in">
+              Root Canal Therapy
+            </h1>
+            <p className="text-lg md:text-xl text-brand-dark-text/80 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in">
+              Gentle, effective treatment to relieve pain and save your natural tooth. Our advanced techniques ensure comfort and success.
+            </p>
+            
+            {/* Treatment benefits */}
+            <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-12">
+              <div className="bg-white/60 backdrop-blur-sm p-6 rounded-sm shadow-md">
+                <Smile className="w-8 h-8 text-brand-merlot mx-auto mb-3" />
+                <h3 className="font-serif text-lg font-semibold text-brand-merlot mb-2">Pain Relief</h3>
+                <p className="text-sm text-brand-dark-text/70">Eliminate tooth pain and restore comfort</p>
+              </div>
+              <div className="bg-white/60 backdrop-blur-sm p-6 rounded-sm shadow-md">
+                <ShieldCheck className="w-8 h-8 text-brand-merlot mx-auto mb-3" />
+                <h3 className="font-serif text-lg font-semibold text-brand-merlot mb-2">Save Your Tooth</h3>
+                <p className="text-sm text-brand-dark-text/70">Preserve your natural tooth structure</p>
+              </div>
+              <div className="bg-white/60 backdrop-blur-sm p-6 rounded-sm shadow-md">
+                <Heart className="w-8 h-8 text-brand-merlot mx-auto mb-3" />
+                <h3 className="font-serif text-lg font-semibold text-brand-merlot mb-2">Gentle Care</h3>
+                <p className="text-sm text-brand-dark-text/70">Comfortable treatment with modern techniques</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main content section */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 space-y-16 md:space-y-24">
-          {/* Symptoms Section */}
-          <FadeInSection className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div>
-              <h2 className="font-serif text-3xl text-brand-merlot mb-4">Signs You Might Need a Root Canal</h2>
-              <p className="text-lg text-brand-dark-text/80 mb-6">
+          {/* Symptoms Section - Now with Icon Grid */}
+          <FadeInSection>
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-merlot mb-4">
+                Signs You Might Need a Root Canal
+              </h2>
+              <p className="text-lg text-brand-dark-text/80 max-w-3xl mx-auto">
                 If you're experiencing any of these symptoms, it's important to see an endodontist. Early intervention
                 can save your tooth and prevent further complications.
               </p>
-              <ul className="space-y-3 text-lg">
-                <li className="flex items-start">
-                  <AlertTriangle className="w-6 h-6 text-brand-rose-beige mr-3 mt-1 shrink-0" /> Persistent tooth pain
-                  or throbbing
-                </li>
-                <li className="flex items-start">
-                  <AlertTriangle className="w-6 h-6 text-brand-rose-beige mr-3 mt-1 shrink-0" /> Sensitivity to hot or
-                  cold temperatures
-                </li>
-                <li className="flex items-start">
-                  <AlertTriangle className="w-6 h-6 text-brand-rose-beige mr-3 mt-1 shrink-0" /> Swelling or tenderness
-                  in the nearby gums
-                </li>
-                <li className="flex items-start">
-                  <AlertTriangle className="w-6 h-6 text-brand-rose-beige mr-3 mt-1 shrink-0" /> A discolored tooth
-                </li>
-                <li className="flex items-start">
-                  <AlertTriangle className="w-6 h-6 text-brand-rose-beige mr-3 mt-1 shrink-0" /> A pimple-like bump on
-                  the gums
-                </li>
-              </ul>
             </div>
-            <div className="rounded-sm overflow-hidden shadow-lg">
-              <Image
-                src="/placeholder.svg?width=600&height=400"
-                alt="Illustration of tooth pain symptoms"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
-              />
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {symptoms.map((symptom, index) => (
+                <Card key={index} className="bg-white shadow-lg border-t-4 border-brand-rose-beige hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6 text-center">
+                    <div className="bg-brand-merlot/10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      {React.cloneElement(symptom.icon, { className: "w-8 h-8 text-brand-merlot" })}
+                    </div>
+                    <h3 className="font-serif text-xl font-semibold text-brand-merlot mb-3">{symptom.title}</h3>
+                    <p className="text-brand-dark-text/80 text-sm leading-relaxed">{symptom.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <Button
+                size="lg"
+                className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-8 py-3"
+                asChild
+              >
+                <Link href="/contact">Schedule Consultation</Link>
+              </Button>
             </div>
           </FadeInSection>
 
@@ -191,7 +262,7 @@ export default function RootCanalTherapyPage() {
             </Button>
           </FadeInSection>
         </div>
-      </PageShell>
+      </section>
       <Footer />
     </>
   )
