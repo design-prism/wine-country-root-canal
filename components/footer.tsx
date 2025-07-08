@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Wine, Facebook, Instagram, Twitter, MapPin, Phone, Mail } from "lucide-react"
+import { Wine, MapPin, Phone, Mail, Printer } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -16,17 +16,6 @@ export default function Footer() {
             </Link>
             <p className="text-sm opacity-90">Craig Wm. Anderson, DDS</p>
             <p className="text-sm opacity-90 mt-1">Restoring Beautiful Smiles.</p>
-            <div className="flex space-x-4 mt-6">
-              <a href="#" aria-label="Facebook" className="hover:opacity-75 transition-opacity">
-                <Facebook className="h-6 w-6" />
-              </a>
-              <a href="#" aria-label="Instagram" className="hover:opacity-75 transition-opacity">
-                <Instagram className="h-6 w-6" />
-              </a>
-              <a href="#" aria-label="Twitter" className="hover:opacity-75 transition-opacity">
-                <Twitter className="h-6 w-6" />
-              </a>
-            </div>
           </div>
 
           {/* Contact Info */}
@@ -51,6 +40,10 @@ export default function Footer() {
                 <a href="mailto:winecountryrootcanal@gmail.com" className="hover:underline break-all">
                   winecountryrootcanal@gmail.com
                 </a>
+              </p>
+              <p className="flex items-center">
+                <Printer className="w-5 h-5 mr-3 shrink-0" />
+                <span>(707) 523-3693</span>
               </p>
             </address>
           </div>

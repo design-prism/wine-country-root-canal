@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
 import { Card } from "@/components/ui/card"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Printer } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 import { LinkButton } from "@/components/ui/link-button"
 
@@ -81,9 +81,16 @@ export default function ContactPage() {
                       <Mail className="w-6 h-6 mr-4 text-brand-rose-beige shrink-0" />
                       <div>
                         <h3 className="font-semibold text-brand-dark-text mb-1">Email</h3>
-                        <a href="mailto:info@winecountryrootcanal.com" className="text-brand-dark-text/90 hover:underline break-all">
-                          info@winecountryrootcanal.com
+                        <a href="mailto:winecountryrootcanal@gmail.com" className="text-brand-dark-text/90 hover:underline break-all">
+                          winecountryrootcanal@gmail.com
                         </a>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <Printer className="w-6 h-6 mr-4 text-brand-rose-beige shrink-0" />
+                      <div>
+                        <h3 className="font-semibold text-brand-dark-text mb-1">Fax</h3>
+                        <span className="text-brand-dark-text/90">(707) 523-3693</span>
                       </div>
                     </div>
                     <div className="flex items-start">

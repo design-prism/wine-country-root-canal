@@ -7,7 +7,7 @@ import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { FadeInSection } from "@/components/fade-in-section"
-import { MapPin, Phone, Mail, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote } from "lucide-react"
+import { MapPin, Phone, Mail, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote, Printer } from "lucide-react"
 import Image from "next/image"
 import { LinkButton } from "@/components/ui/link-button"
 
@@ -226,9 +226,13 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center">
                     <Mail className="w-5 h-5 mr-3 text-brand-rose-beige shrink-0" />
-                    <a href="mailto:info@winecountryrootcanal.com" className="hover:underline">
-                      info@winecountryrootcanal.com
+                    <a href="mailto:winecountryrootcanal@gmail.com" className="hover:underline">
+                      winecountryrootcanal@gmail.com
                     </a>
+                  </div>
+                  <div className="flex items-center">
+                    <Printer className="w-5 h-5 mr-3 text-brand-rose-beige shrink-0" />
+                    <span>(707) 523-3693</span>
                   </div>
                 </div>
               </Card>
