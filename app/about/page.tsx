@@ -139,26 +139,47 @@ export default function AboutPage() {
           </div>
           {/* Video Introductions */}
           <FadeInSection>
-            <h2 className="font-serif text-3xl text-brand-merlot mb-6 text-center">Learn More</h2>
+            <h2 className="font-serif text-3xl text-brand-merlot mb-8 text-center">Dr. Anderson Explains</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <AspectRatio ratio={16 / 9} className="rounded-sm overflow-hidden shadow-lg">
-                <iframe
-                  src="https://player.vimeo.com/video/1095465301?title=0&byline=0&portrait=0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                  title="Welcome to Wine Country Root Canal"
-                ></iframe>
-              </AspectRatio>
-              <AspectRatio ratio={16 / 9} className="rounded-sm overflow-hidden shadow-lg">
-                <iframe
-                  src="https://player.vimeo.com/video/1095465278?title=0&byline=0&portrait=0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                  title="Meet Dr. Craig Anderson"
-                ></iframe>
-              </AspectRatio>
+              {/* Post-Treatment Care Video */}
+              <Card className="bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                <CardContent className="p-6">
+                  <AspectRatio ratio={16 / 9} className="rounded-sm overflow-hidden shadow-lg mb-4">
+                    <iframe
+                      src="https://player.vimeo.com/video/1095465301?title=0&byline=0&portrait=0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                      title="Dr. Anderson explains what to expect after root canal treatment"
+                    ></iframe>
+                  </AspectRatio>
+                  <h3 className="font-serif text-xl text-brand-merlot mb-3">What to Expect After Your Root Canal</h3>
+                  <p className="text-brand-dark-text/80 leading-relaxed">
+                    Dr. Anderson explains the normal symptoms and recovery process following root canal treatment, 
+                    including what's normal to experience and when to contact our office for follow-up care.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Root Canal Education Video */}
+              <Card className="bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                <CardContent className="p-6">
+                  <AspectRatio ratio={16 / 9} className="rounded-sm overflow-hidden shadow-lg mb-4">
+                    <iframe
+                      src="https://player.vimeo.com/video/1095465278?title=0&byline=0&portrait=0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                      title="Dr. Anderson explains what a root canal procedure involves"
+                    ></iframe>
+                  </AspectRatio>
+                  <h3 className="font-serif text-xl text-brand-merlot mb-3">Understanding Root Canal Treatment</h3>
+                  <p className="text-brand-dark-text/80 leading-relaxed">
+                    Get a clear explanation of what a root canal procedure involves, why it's necessary, 
+                    and how modern endodontic techniques make the process comfortable and effective.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </FadeInSection>
         </div>
