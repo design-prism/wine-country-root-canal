@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full font-sans transition-all duration-300 ${
+      className={`sticky top-0 z-navbar w-full font-sans transition-all duration-300 ${
         isScrolled ? "bg-brand-cream/95 shadow-md backdrop-blur-sm" : "bg-brand-cream"
       }`}
     >

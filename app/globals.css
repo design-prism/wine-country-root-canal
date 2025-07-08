@@ -4,6 +4,12 @@
 
 @layer base {
   :root {
+    /* Brand Colors */
+    --brand-cream: #FDF9F5;
+    --brand-merlot: #762336;
+    --brand-rose-beige: #BF8D7C;
+    --brand-dark-text: #3D3D3D;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -36,40 +42,43 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Brand Colors in Dark Mode */
+    --brand-cream: #3D3D3D; /* Inverted to dark */
+    --brand-merlot: #BF8D7C; /* Lightened for dark mode */
+    --brand-rose-beige: #762336; /* Swapped with merlot for contrast */
+    --brand-dark-text: #FDF9F5; /* Inverted to light */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --background: 0 0% 10%; /* Dark background */
+    --foreground: 30 20% 95%; /* Light cream text */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --card: 0 0% 15%;
+    --card-foreground: 30 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 30 20% 95%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: 346 52% 30%; /* Brand merlot */
+    --primary-foreground: 30 20% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 30 20% 95%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 14 29% 60%; /* Brand rose-beige */
+    --accent-foreground: 30 20% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 30 20% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 215 20.2% 65.1%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 346 52% 30%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
   }
@@ -81,22 +90,22 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #fdf9f5; /* brand-cream */
+  background: var(--brand-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bf8d7c; /* brand-rose-beige */
+  background: var(--brand-rose-beige);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #762336; /* brand-merlot */
+  background: var(--brand-merlot);
 }
 
 /* For Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #bf8d7c #fdf9f5; /* thumb and track */
+  scrollbar-color: var(--brand-rose-beige) var(--brand-cream);
 }
 
 /* Smooth scrolling for anchor links */

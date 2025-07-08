@@ -34,23 +34,13 @@ export function PageShell({
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               title={`${title} page hero video background`}
-              className="opacity-25" // Keep only the opacity class
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                width: "auto",
-                height: "auto",
-                minWidth: "100%",
-                minHeight: "100%",
-                transform: "translate(-50%, -50%)",
-              }}
+              className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 opacity-25"
             ></iframe>
           </div>
           {/* Overlay for text contrast - using existing PageShell overlay style */}
-          <div className="absolute inset-0 bg-brand-merlot/70 z-10" />{" "}
+          <div className="absolute inset-0 bg-brand-merlot/70 z-dropdown" />{" "}
           {/* Adjusted opacity for better contrast on video */}
-          <div className="relative z-20 p-4 animate-fade-in">
+          <div className="relative z-modal p-4 animate-fade-in">
             <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight">{title}</h1>
             {description && !heroContent && (
               <p className="mt-4 text-lg text-brand-cream/90 max-w-2xl mx-auto">{description}</p>
@@ -69,8 +59,8 @@ export function PageShell({
               className="object-cover z-0"
               priority
             />
-            <div className="absolute inset-0 bg-brand-merlot/60 z-10" />
-            <div className="relative z-20 p-4 animate-fade-in">
+            <div className="absolute inset-0 bg-brand-merlot/60 z-dropdown" />
+            <div className="relative z-modal p-4 animate-fade-in">
               <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight">{title}</h1>
               {description && !heroContent && (
                 <p className="mt-4 text-lg text-brand-cream/90 max-w-2xl mx-auto">{description}</p>
