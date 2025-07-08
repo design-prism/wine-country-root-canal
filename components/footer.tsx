@@ -75,9 +75,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:underline opacity-90">
+                <a 
+                  href="https://fxuqp40sseh.typeform.com/to/qYX51Bgz" 
+                  className="hover:underline opacity-90"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book Appointment
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

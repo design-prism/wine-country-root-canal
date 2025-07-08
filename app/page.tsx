@@ -62,11 +62,12 @@ export default function HomePage() {
                 Expert endodontic care with a gentle touch in the heart of Santa Rosa.
               </p>
               <LinkButton
-                href="#contact"
+                href="https://fxuqp40sseh.typeform.com/to/qYX51Bgz"
                 variant="brand-primary"
                 size="lg"
                 className="w-full sm:w-auto"
-                onClick={(e) => scrollToSection(e, "contact")}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Schedule a Consultation
               </LinkButton>

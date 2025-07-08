@@ -3,15 +3,17 @@ import Link, { type LinkProps } from "next/link"
 import { Button, type ButtonProps } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-// Combine ButtonProps and relevant LinkProps
+// Combine ButtonProps and relevant LinkProps, plus external link props
 interface LinkButtonProps extends ButtonProps, Omit<LinkProps, "as" | "passHref"> {
   href: string
   icon?: React.ReactElement
   iconPosition?: "left" | "right"
+  target?: string
+  rel?: string
 }
 
 const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
-  ({ href, children, icon, iconPosition = "left", className, variant, size, ...props }, ref) => {
+  ({ href, children, icon, iconPosition = "left", className, variant, size, target, rel, ...props }, ref) => {
     const iconMarkup = icon
       ? React.cloneElement(icon, {
           className: cn(
@@ -20,6 +22,21 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
           ),
         })
       : null
+
+    // Check if it's an external link
+    const isExternalLink = href.startsWith("http") || href.startsWith("//") || target === "_blank"
+
+    if (isExternalLink) {
+      return (
+        <Button asChild variant={variant} size={size} className={className}>
+          <a href={href} ref={ref} target={target} rel={rel} {...props}>
+            {iconPosition === "left" && iconMarkup}
+            {children}
+            {iconPosition === "right" && iconMarkup}
+          </a>
+        </Button>
+      )
+    }
 
     return (
       <Button asChild variant={variant} size={size} className={className}>

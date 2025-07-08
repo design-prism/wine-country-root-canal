@@ -175,10 +175,12 @@ export default function RootCanalTherapyPage() {
               Don't let tooth pain control your life. Schedule your consultation today for expert root canal therapy.
             </p>
             <LinkButton
-              href="/contact"
+              href="https://fxuqp40sseh.typeform.com/to/qYX51Bgz"
               variant="brand-primary"
               size="lg"
               className="px-8 md:px-10 py-3 text-base md:text-lg"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Book Your Appointment
             </LinkButton>

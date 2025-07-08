@@ -103,7 +103,13 @@ export default function Navbar() {
         </NavigationMenu>
 
         <div className="hidden md:flex">
-          <LinkButton href="/contact" variant="brand-primary" className="font-semibold">
+          <LinkButton 
+            href="https://fxuqp40sseh.typeform.com/to/qYX51Bgz" 
+            variant="brand-primary" 
+            className="font-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Book Appointment
           </LinkButton>
         </div>
@@ -161,10 +167,12 @@ export default function Navbar() {
 
               <div className="p-6 mt-6 border-t border-brand-rose-beige/30 bg-white">
                 <LinkButton
-                  href="/contact"
+                  href="https://fxuqp40sseh.typeform.com/to/qYX51Bgz"
                   size="lg"
                   variant="brand-primary"
                   className="w-full text-base"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={closeMobileMenu}
                 >
                   Book Appointment
