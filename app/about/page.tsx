@@ -2,7 +2,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
 import Image from "next/image"
-import { BookOpen, Users, Heart } from "lucide-react"
+import { BookOpen, Users, Heart, Shield, Eye } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
@@ -40,15 +40,13 @@ export default function AboutPage() {
                 <h2 className="font-serif text-3xl text-brand-merlot mb-6">A Philosophy of Care</h2>
                 <div className="text-lg text-brand-dark-text/80 space-y-4">
                   <p>
-                    Excellence in dentistry begins with a careful diagnosis and treatment plan to establish the goals we
-                    will achieve together. Communication and long-term relationships are important to us. Let us know
-                    what is on your mind and ask questions. We will help you realize an investment in yourself pays
-                    dividends for a lifetime. We are caring, skilled professionals, dedicated to simplifying what is
-                    often a very complicated and confusing area of health care.
+                    A standard of excellence in personalized dental care enables us to provide the quality dental services our patients deserve. Excellence in dentistry begins with a careful diagnosis and comprehensive treatment planning to establish the goals we will achieve together. Communication and long-term relationships are important to us. Let us know what is on your mind and ask questions. We will help you realize an investment in yourself pays dividends for a lifetime.
                   </p>
                   <p>
-                    We want all our patients to be informed and knowledgeable about their dental health care, from
-                    treatment plans and services, to insurance coverage.
+                    We are caring, skilled professionals, dedicated to simplifying what is often a very complicated and confusing area of health care. Should a dental emergency occur, we make every effort to see and care for you as soon as possible.
+                  </p>
+                  <p>
+                    We want all our patients to be informed and knowledgeable about their dental health care, from treatment plans and services, to insurance coverage.
                   </p>
                 </div>
               </div>
@@ -65,6 +63,57 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </FadeInSection>
+
+          {/* Practice Values Section */}
+          <FadeInSection>
+            <h2 className="font-serif text-3xl text-brand-merlot mb-8 text-center">Our Practice Values</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Safety Standards */}
+              <Card className="bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                <CardHeader className="flex-row items-center gap-4">
+                  <Shield className="w-10 h-10 text-brand-merlot shrink-0" />
+                  <CardTitle className="font-serif text-xl text-brand-merlot">Uncompromising Safety</CardTitle>
+                </CardHeader>
+                <CardContent className="text-brand-dark-text/80 space-y-3">
+                  <p>
+                    Infection control in our office is very important to us. To protect our patients and ourselves, we strictly maintain sterilization and cross contamination processes using standards recommended by the American Dental Association (ADA), the Occupational Safety and Health Administration (OSHA), and the Center for Disease Control (CDC).
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Patient Experience */}
+              <Card className="bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                <CardHeader className="flex-row items-center gap-4">
+                  <Heart className="w-10 h-10 text-brand-merlot shrink-0" />
+                  <CardTitle className="font-serif text-xl text-brand-merlot">Patient-Centered Experience</CardTitle>
+                </CardHeader>
+                <CardContent className="text-brand-dark-text/80 space-y-3">
+                  <p>
+                    Building a foundation of trust by treating our patients as special individuals is vital to our success. We understand how uneasy some patients may feel about their dental visits, and how we can make a difference in providing a relaxing and positive experience.
+                  </p>
+                  <p>
+                    Our entire team is dedicated to providing you with excellent, personalized care and service to make your visits as comfortable and pleasant as possible.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Comprehensive Care */}
+              <Card className="bg-white shadow-xl border-t-4 border-brand-rose-beige">
+                <CardHeader className="flex-row items-center gap-4">
+                  <Eye className="w-10 h-10 text-brand-merlot shrink-0" />
+                  <CardTitle className="font-serif text-xl text-brand-merlot">Comprehensive Care</CardTitle>
+                </CardHeader>
+                <CardContent className="text-brand-dark-text/80 space-y-3">
+                  <p>
+                    As a practice, we are true believers that preventative care and education are the keys to optimal dental health. We focus on thorough exams – checking the overall health of your teeth and gums, performing oral cancer exams, and taking x-rays when necessary.
+                  </p>
+                  <p>
+                    Not only are we focused on the beauty of your smile, we're also concerned about your health. A review of your medical history helps us stay informed of your overall health and any conditions that may impact your dental health.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </FadeInSection>
 
@@ -94,9 +143,10 @@ export default function AboutPage() {
                   </p>
                   <p>
                     I believe in having well-rounded knowledge of all aspects of dentistry, and not just an
-                    understanding of root canals. I frequently attend many continuing education courses in all aspects
-                    of dentistry. I have found that this is of paramount importance when it comes to my patients dental
-                    health, diagnoses, and treatment of complex cases.
+                    understanding of root canals. To give you the best possible service and results, I am committed to continual education and learning. I attend dental lectures, meetings, and dental conventions to stay informed of new techniques, the latest products, and the newest equipment that a modern dental office can utilize to provide state-of-the-art dental care.
+                  </p>
+                  <p>
+                    Being a member of various professional dental associations helps me stay abreast of the changes and recommendations for our profession. I have found that this comprehensive approach is of paramount importance when it comes to my patients' dental health, diagnoses, and treatment of complex cases.
                   </p>
                 </CardContent>
               </Card>
