@@ -1,3 +1,5 @@
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
 import { Star, QuoteIcon } from "lucide-react"
 
@@ -306,39 +308,43 @@ const realTestimonials: Testimonial[] = [
 
 export default function TestimonialsPage() {
   return (
-    <PageShell
-      title="Patient Testimonials"
-      description="Hear what our patients have to say about their experience at Wine Country Root Canal."
-      heroImageUrl="/images/wine-country-vineyard.jpg"
-    >
-      <div className="container mx-auto px-4 py-8 md:px-6 md:py-12">
-        <div className="space-y-8">
-          {realTestimonials.map((testimonial) => (
-            <div key={testimonial.id} className="border-b border-brand-cream/50 pb-8 last:border-b-0 last:pb-0">
-              <div className="mb-2">
-                <h3 className="text-xl font-semibold text-brand-merlot">{testimonial.name}</h3>
-                {testimonial.source && <p className="text-xs text-brand-dark-text/60 mt-0.5">{testimonial.source}</p>}
+    <>
+      <Navbar />
+      <PageShell
+        title="Patient Testimonials"
+        description="Hear what our patients have to say about their experience at Wine Country Root Canal."
+        heroImageUrl="/images/wine-country-vineyard.jpg"
+      >
+        <div className="container mx-auto px-4 py-8 md:px-6 md:py-12">
+          <div className="space-y-8">
+            {realTestimonials.map((testimonial) => (
+              <div key={testimonial.id} className="border-b border-brand-cream/50 pb-8 last:border-b-0 last:pb-0">
+                <div className="mb-2">
+                  <h3 className="text-xl font-semibold text-brand-merlot">{testimonial.name}</h3>
+                  {testimonial.source && <p className="text-xs text-brand-dark-text/60 mt-0.5">{testimonial.source}</p>}
+                </div>
+                <div className="flex items-center mb-3">
+                  {Array(testimonial.rating)
+                    .fill(0)
+                    .map((_, i) => (
+                      <Star key={`filled-${i}`} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  {Array(5 - testimonial.rating)
+                    .fill(0)
+                    .map((_, i) => (
+                      <Star key={`empty-${i}`} className="h-5 w-5 text-gray-300" />
+                    ))}
+                </div>
+                <blockquote className="relative">
+                  <QuoteIcon className="absolute -top-1 -left-2 w-8 h-8 text-brand-rose-beige/30 transform -scale-x-100" />
+                  <p className="text-base text-brand-dark-text/80 leading-relaxed pl-4 italic">{testimonial.quote}</p>
+                </blockquote>
               </div>
-              <div className="flex items-center mb-3">
-                {Array(testimonial.rating)
-                  .fill(0)
-                  .map((_, i) => (
-                    <Star key={`filled-${i}`} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  ))}
-                {Array(5 - testimonial.rating)
-                  .fill(0)
-                  .map((_, i) => (
-                    <Star key={`empty-${i}`} className="h-5 w-5 text-gray-300" />
-                  ))}
-              </div>
-              <blockquote className="relative">
-                <QuoteIcon className="absolute -top-1 -left-2 w-8 h-8 text-brand-rose-beige/30 transform -scale-x-100" />
-                <p className="text-base text-brand-dark-text/80 leading-relaxed pl-4 italic">{testimonial.quote}</p>
-              </blockquote>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </PageShell>
+      </PageShell>
+      <Footer />
+    </>
   )
 }
