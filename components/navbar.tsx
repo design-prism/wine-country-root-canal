@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
+import { LinkButton } from "@/components/ui/link-button"
 
 const patientLinks: { title: string; href: string; description: string }[] = [
   {
@@ -102,12 +103,9 @@ export default function Navbar() {
         </NavigationMenu>
 
         <div className="hidden md:flex">
-          <Button
-            asChild
-            className="bg-brand-rose-beige text-brand-dark-text hover:bg-brand-merlot hover:text-brand-cream font-semibold"
-          >
-            <Link href="/contact">Book Appointment</Link>
-          </Button>
+          <LinkButton href="/contact" variant="brand-primary" className="font-semibold">
+            Book Appointment
+          </LinkButton>
         </div>
 
         {/* Mobile Navigation */}
@@ -162,15 +160,15 @@ export default function Navbar() {
               <div className="flex-grow" />
 
               <div className="p-6 mt-6 border-t border-brand-rose-beige/30 bg-white">
-                <Button
-                  asChild
+                <LinkButton
+                  href="/contact"
                   size="lg"
-                  className="w-full bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 text-base"
+                  variant="brand-primary"
+                  className="w-full text-base"
+                  onClick={closeMobileMenu}
                 >
-                  <Link href="/contact" onClick={closeMobileMenu}>
-                    Book Appointment
-                  </Link>
-                </Button>
+                  Book Appointment
+                </LinkButton>
               </div>
             </div>
           </SheetContent>

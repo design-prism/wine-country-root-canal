@@ -139,10 +139,7 @@ export default function ContactPage() {
                       information.)
                     </p>
                   </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-brand-merlot text-brand-cream hover:bg-opacity-90 py-3 text-base"
-                  >
+                  <Button type="submit" variant="brand-primary" className="w-full py-3 text-base">
                     Send Message
                   </Button>
                 </form>

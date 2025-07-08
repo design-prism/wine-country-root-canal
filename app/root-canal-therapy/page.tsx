@@ -1,11 +1,10 @@
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
-import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { AlertTriangle, HelpCircle, DollarSign, Smile } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
-import Link from "next/link"
+import { LinkButton } from "@/components/ui/link-button"
 
 export default function RootCanalTherapyPage() {
   const faqItems = [
@@ -175,13 +174,14 @@ export default function RootCanalTherapyPage() {
             <p className="text-lg sm:text-xl text-brand-dark-text/80 mb-8 max-w-xl mx-auto">
               Don't let tooth pain control your life. Schedule your consultation today for expert root canal therapy.
             </p>
-            <Button
+            <LinkButton
+              href="/contact"
+              variant="brand-primary"
               size="lg"
-              className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-8 md:px-10 py-3 text-base md:text-lg"
-              asChild
+              className="px-8 md:px-10 py-3 text-base md:text-lg"
             >
-              <Link href="/contact">Book Your Appointment</Link>
-            </Button>
+              Book Your Appointment
+            </LinkButton>
           </FadeInSection>
         </div>
       </PageShell>

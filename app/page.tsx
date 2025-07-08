@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { FadeInSection } from "@/components/fade-in-section"
 import { MapPin, Phone, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
+import { LinkButton } from "@/components/ui/link-button"
 
 export default function HomePage() {
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
@@ -72,15 +72,15 @@ export default function HomePage() {
               <p className="text-base sm:text-lg text-brand-dark-text/80 mb-6 sm:mb-8 leading-relaxed">
                 Expert endodontic care with a gentle touch in the heart of Santa Rosa.
               </p>
-              <Button
+              <LinkButton
+                href="#contact"
+                variant="brand-primary"
                 size="lg"
-                className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-8 sm:px-10 py-3 text-sm sm:text-base font-semibold shadow-md transition-transform hover:scale-105 w-full sm:w-auto"
-                asChild
+                className="w-full sm:w-auto"
+                onClick={(e) => scrollToSection(e, "contact")}
               >
-                <Link href="#contact" onClick={(e) => scrollToSection(e, "contact")}>
-                  Schedule a Consultation
-                </Link>
-              </Button>
+                Schedule a Consultation
+              </LinkButton>
             </div>
           </div>
         </section>
@@ -188,13 +188,14 @@ export default function HomePage() {
               ))}
             </div>
             <div className="mt-12 md:mt-16 text-center">
-              <Button
-                asChild
+              <LinkButton
+                href="/testimonials"
+                variant="brand-outline"
                 size="lg"
-                className="bg-transparent border border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream transition-colors duration-300 ease-in-out px-8 py-3 text-base font-semibold shadow-sm"
+                className="px-8 py-3 text-base font-semibold"
               >
-                <Link href="/testimonials">View More Testimonials</Link>
-              </Button>
+                View More Testimonials
+              </LinkButton>
             </div>
           </FadeInSection>
         </section>
@@ -234,10 +235,7 @@ export default function HomePage() {
                       </label>
                       <Textarea id="message" name="message" rows={5} required className="bg-white" />
                     </div>
-                    <Button
-                      type="submit"
-                      className="w-full bg-brand-merlot text-brand-cream hover:bg-opacity-90 py-3 text-base"
-                    >
+                    <Button type="submit" variant="brand-primary" className="w-full py-3 text-base">
                       Send Message
                     </Button>
                   </form>

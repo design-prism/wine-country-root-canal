@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { PageShell } from "@/components/page-shell"
-import { Button } from "@/components/ui/button"
+import { LinkButton } from "@/components/ui/link-button"
 import { FileText, Download } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 
@@ -17,15 +17,21 @@ export default function OnlineFormsPage() {
             download and complete our new patient forms prior to your appointment.
           </p>
           <div className="space-y-4 max-w-md mx-auto">
-            <Button size="lg" className="w-full bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90" asChild>
-              <a href="/placeholder-new-patient-form.pdf" download>
-                <Download className="w-5 h-5 mr-2" /> Download New Patient PDF
-              </a>
-            </Button>
+            <LinkButton
+              href="/placeholder-new-patient-form.pdf"
+              variant="brand-primary"
+              size="lg"
+              className="w-full"
+              icon={<Download className="w-5 h-5" />}
+              iconPosition="left"
+              download
+            >
+              Download New Patient PDF
+            </LinkButton>
             {/* Placeholder for future online form link */}
-            {/* <Button size="lg" variant="outline" className="w-full border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream" disabled>
-              <Edit3 className="w-5 h-5 mr-2" /> Fill Out Online Form (Coming Soon)
-            </Button> */}
+            {/* <Button size="lg" variant="outline" className="w-full border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream bg-transparent" disabled>
+            <Edit3 className="w-5 h-5 mr-2" /> Fill Out Online Form (Coming Soon)
+          </Button> */}
           </div>
           <p className="mt-8 text-brand-dark-text/70">
             Please bring the completed forms with you to your appointment. If you have any questions while filling them

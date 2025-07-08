@@ -1,10 +1,9 @@
 "use client"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { Button } from "@/components/ui/button"
+import { LinkButton } from "@/components/ui/link-button"
 import { CheckCircle, Send, Users, Microscope, Zap, ArrowRight } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
-import Link from "next/link"
 
 export default function ForDentistsPage() {
   const valueProps = [
@@ -47,24 +46,20 @@ export default function ForDentistsPage() {
               outcomes for your patients.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <a
-                  href={referralFormUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 shadow-md transition-transform hover:scale-105"
-                >
-                  Submit a Referral <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link
-                  href="/technology"
-                  className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot/5 shadow-md transition-transform hover:scale-105 bg-transparent"
-                >
-                  Explore Our Technology
-                </Link>
-              </Button>
+              <LinkButton
+                href={referralFormUrl}
+                variant="brand-primary"
+                size="lg"
+                icon={<ArrowRight />}
+                iconPosition="right"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Submit a Referral
+              </LinkButton>
+              <LinkButton href="/technology" variant="brand-outline" size="lg">
+                Explore Our Technology
+              </LinkButton>
             </div>
           </FadeInSection>
         </section>
@@ -113,14 +108,9 @@ export default function ForDentistsPage() {
                   <p className="text-brand-dark-text/70 mt-2">Detailed 3D views for accurate diagnosis.</p>
                 </div>
               </div>
-              <Button variant="outline" asChild className="mt-12 bg-transparent">
-                <Link
-                  href="/technology"
-                  className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream bg-transparent"
-                >
-                  Learn More About Our Technology
-                </Link>
-              </Button>
+              <LinkButton href="/technology" variant="brand-outline">
+                Learn More About Our Technology
+              </LinkButton>
             </FadeInSection>
           </section>
         </div>
@@ -133,16 +123,17 @@ export default function ForDentistsPage() {
               Submit referrals quickly and securely through our online form. We typically contact patients within 24-48
               hours to schedule.
             </p>
-            <Button size="lg" asChild>
-              <a
-                href={referralFormUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90"
-              >
-                <Send className="w-5 h-5 mr-2" /> Go to Online Referral Form
-              </a>
-            </Button>
+            <LinkButton
+              href={referralFormUrl}
+              variant="brand-primary"
+              size="lg"
+              icon={<Send />}
+              iconPosition="left"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Go to Online Referral Form
+            </LinkButton>
             <p className="text-sm text-brand-dark-text/70 mt-4">For urgent cases, please call our office directly.</p>
           </FadeInSection>
         </section>
