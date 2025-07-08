@@ -6,26 +6,12 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { FadeInSection } from "@/components/fade-in-section"
-import { MapPin, Phone, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote } from "lucide-react"
+import { MapPin, Phone, Mail, HeartHandshake, BriefcaseMedical, ShieldCheck, AlertTriangle, Quote } from "lucide-react"
 import Image from "next/image"
 import { LinkButton } from "@/components/ui/link-button"
 
 export default function HomePage() {
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
-    e.preventDefault()
-    const targetElement = document.getElementById(targetId)
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    alert("Form submitted! (This is a placeholder)")
-  }
 
   const vimeoVideoId = "1095456147"
 
@@ -197,67 +183,93 @@ export default function HomePage() {
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-merlot mb-4">
                 Schedule Your Appointment
               </h2>
-              <p className="text-lg text-brand-dark-text/80">
-                We encourage you to contact us with any questions. Please call our office or use the form below.
+              <p className="text-lg text-brand-dark-text/80 mb-8">
+                Ready to schedule your appointment? Contact us today or book online for convenient scheduling.
               </p>
-            </div>
-            <div className="grid lg:grid-cols-5 gap-12">
-              <div className="lg:col-span-3">
-                <Card className="bg-brand-cream p-6 sm:p-8 md:p-10 rounded-sm border-none shadow-lg">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-semibold text-brand-dark-text mb-2">
-                          Name
-                        </label>
-                        <Input id="name" name="name" required className="bg-white" />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-brand-dark-text mb-2">
-                          Email
-                        </label>
-                        <Input id="email" name="email" type="email" required className="bg-white" />
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-semibold text-brand-dark-text mb-2">
-                        Message
-                      </label>
-                      <Textarea id="message" name="message" rows={5} required className="bg-white" />
-                    </div>
-                    <Button type="submit" variant="brand-primary" className="w-full py-3 text-base">
-                      Send Message
-                    </Button>
-                  </form>
-                </Card>
+              
+              {/* Primary CTA */}
+              <div className="mb-12 md:mb-16">
+                <LinkButton
+                  href="https://fxuqp40sseh.typeform.com/to/qYX51Bgz"
+                  variant="brand-primary"
+                  size="lg"
+                  className="px-8 py-4 text-lg font-semibold"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book Appointment Online
+                </LinkButton>
+                <p className="mt-4 text-brand-dark-text/70">
+                  Or contact us directly using the information below
+                </p>
               </div>
-              <div className="lg:col-span-2 space-y-6">
-                <div className="bg-brand-cream p-6 rounded-sm shadow-lg">
-                  <h3 className="font-serif text-xl text-brand-merlot mb-4">Contact Details</h3>
-                  <div className="space-y-3 text-brand-dark-text/90">
-                    <p className="flex items-start">
-                      <MapPin className="w-5 h-5 mr-3 mt-1 text-brand-rose-beige shrink-0" />
-                      <span>
-                        4655 Hoen Ave Ste 2<br />
-                        Santa Rosa, CA 95405
-                      </span>
-                    </p>
-                    <p className="flex items-center">
-                      <Phone className="w-5 h-5 mr-3 text-brand-rose-beige shrink-0" />
-                      <a href="tel:+17075233636" className="hover:underline">
-                        (707) 523-3636
-                      </a>
-                    </p>
+            </div>
+
+            {/* Contact Information Cards */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Contact Details */}
+              <Card className="bg-brand-cream p-6 rounded-sm border-none shadow-lg">
+                <h3 className="font-serif text-xl text-brand-merlot mb-4">Contact Details</h3>
+                <div className="space-y-4 text-brand-dark-text/90">
+                  <div className="flex items-start">
+                    <MapPin className="w-5 h-5 mr-3 mt-1 text-brand-rose-beige shrink-0" />
+                    <span>
+                      4655 Hoen Ave Ste 2<br />
+                      Santa Rosa, CA 95405
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <Phone className="w-5 h-5 mr-3 text-brand-rose-beige shrink-0" />
+                    <a href="tel:+17075233636" className="hover:underline">
+                      (707) 523-3636
+                    </a>
+                  </div>
+                  <div className="flex items-center">
+                    <Mail className="w-5 h-5 mr-3 text-brand-rose-beige shrink-0" />
+                    <a href="mailto:info@winecountryrootcanal.com" className="hover:underline">
+                      info@winecountryrootcanal.com
+                    </a>
                   </div>
                 </div>
-                <div className="bg-brand-cream p-6 rounded-sm shadow-lg">
-                  <h3 className="font-serif text-xl text-brand-merlot mb-4">Office Hours</h3>
-                  <ul className="space-y-1 text-brand-dark-text/90">
-                    <li>Monday - Thursday: 8 AM - 5 PM</li>
-                    <li>Friday: 8 AM - 2 PM</li>
-                  </ul>
+              </Card>
+
+              {/* Office Hours */}
+              <Card className="bg-brand-cream p-6 rounded-sm border-none shadow-lg">
+                <h3 className="font-serif text-xl text-brand-merlot mb-4">Office Hours</h3>
+                <ul className="space-y-2 text-brand-dark-text/90">
+                  <li className="flex justify-between">
+                    <span>Monday - Thursday:</span>
+                    <span className="font-medium">8 AM - 5 PM</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Friday:</span>
+                    <span className="font-medium">8 AM - 2 PM</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Saturday - Sunday:</span>
+                    <span className="font-medium text-brand-dark-text/60">Closed</span>
+                  </li>
+                </ul>
+              </Card>
+
+              {/* Get In Touch */}
+              <Card className="bg-brand-cream p-6 rounded-sm border-none shadow-lg">
+                <h3 className="font-serif text-xl text-brand-merlot mb-4">Get In Touch</h3>
+                <div className="space-y-4 text-brand-dark-text/90">
+                  <p className="text-sm">
+                    <strong>New Patients:</strong><br />
+                    Call us to schedule your consultation
+                  </p>
+                  <p className="text-sm">
+                    <strong>Dental Emergencies:</strong><br />
+                    We make every effort to see emergency cases as soon as possible
+                  </p>
+                  <p className="text-sm">
+                    <strong>Questions:</strong><br />
+                    Email us or call during business hours
+                  </p>
                 </div>
-              </div>
+              </Card>
             </div>
           </FadeInSection>
         </section>
