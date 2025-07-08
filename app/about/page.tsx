@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6 space-y-16 md:space-y-24">
           {/* Introduction Section */}
           <FadeInSection className="grid md:grid-cols-3 gap-8 lg:gap-12 items-start">
-            <div className="md:col-span-1 rounded-sm overflow-hidden shadow-lg sticky top-28">
+            <div className="md:col-span-1 rounded-sm overflow-hidden shadow-lg md:sticky md:top-28">
               <Image
                 src="/images/dr-craig-anderson.jpg"
                 alt="Dr. Craig Anderson, Endodontist"
