@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card } from "@/components/ui/card"
-import { MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react"
+import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import { FadeInSection } from "@/components/fade-in-section"
 
 export default function ContactPage() {
@@ -26,53 +26,6 @@ export default function ContactPage() {
         description="We're here to answer your questions and help you schedule an appointment."
       >
         <div className="container mx-auto px-4 md:px-6">
-          {/* Patient Portal CTA Section */}
-          <FadeInSection className="mb-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <Card className="bg-white/80 border-brand-merlot/20 shadow-lg">
-                <div className="p-6 md:p-8">
-                  <div className="flex justify-center mb-4">
-                    <div className="bg-brand-merlot/10 p-3 rounded-full">
-                      <ExternalLink className="w-8 h-8 text-brand-merlot" />
-                    </div>
-                  </div>
-                  <h2 className="font-serif text-xl md:text-2xl font-bold text-brand-merlot mb-3">
-                    Save Time - Complete Forms Before Your Visit
-                  </h2>
-                  <p className="text-brand-dark-text/80 mb-6">
-                    Start your appointment preparation now by accessing our secure patient portal.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-                    <Button 
-                      size="lg" 
-                      className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-6 py-2"
-                      asChild
-                    >
-                      <a 
-                        href="https://winecountryrootcanal.dentalsymphony.com/Patient/NewPatient.aspx" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Access Patient Portal
-                      </a>
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="lg"
-                      className="border-brand-merlot text-brand-merlot hover:bg-brand-merlot hover:text-brand-cream px-6 py-2"
-                      asChild
-                    >
-                      <a href="/forms">
-                        Learn More About Forms
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </FadeInSection>
-
           <FadeInSection className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Contact Info & Hours */}
             <div className="space-y-8">

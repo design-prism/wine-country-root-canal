@@ -20,11 +20,6 @@ import { useState, useEffect } from "react"
 
 const patientLinks: { title: string; href: string; description: string }[] = [
   {
-    title: "Patient Portal & Forms",
-    href: "/forms",
-    description: "Access our secure online portal to complete forms before your visit.",
-  },
-  {
     title: "Root Canal Therapy",
     href: "/root-canal-therapy",
     description: "Learn about our gentle, effective pain-relief treatment.",
@@ -33,6 +28,11 @@ const patientLinks: { title: string; href: string; description: string }[] = [
     title: "Our Technology",
     href: "/technology",
     description: "Explore the advanced tools we use for precise, comfortable care.",
+  },
+  {
+    title: "Patient Forms",
+    href: "/forms",
+    description: "Save time by completing your forms before your appointment.",
   },
 ]
 

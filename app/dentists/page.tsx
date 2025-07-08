@@ -34,6 +34,13 @@ export default function ForDentistsPage() {
     },
   ]
 
+  const scrollToReferral = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+    const referralSection = document.getElementById("referral-process")
+    if (referralSection) {
+      referralSection.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
 
   const vimeoVideoId = "1095456147"
 
@@ -52,15 +59,11 @@ export default function ForDentistsPage() {
             title="Wine Country Vineyards Background Video - Rolling Hills"
             className="opacity-15" // For subtlety
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              width: "177.77vh", // 16:9 aspect ratio width based on viewport height
-              height: "100vh",
-              minWidth: "100vw",
-              minHeight: "56.25vw", // 16:9 aspect ratio height based on viewport width
-              transform: "translate(-50%, -50%)",
-              pointerEvents: "none",
+              position: "absolute", // Positioned within the parent div
+              top: 0,
+              left: 0,
+              width: "100%", // Fill parent div's width
+              height: "100%", // Fill parent div's height
             }}
           ></iframe>
         </div>
@@ -82,7 +85,7 @@ export default function ForDentistsPage() {
                 className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 px-8 py-3 text-base font-semibold shadow-md transition-transform hover:scale-105"
                 asChild
               >
-                <Link href="/referral">
+                <Link href="#referral-process" onClick={scrollToReferral}>
                   Make a Referral <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -170,12 +173,10 @@ export default function ForDentistsPage() {
               <div>
                 <h3 className="font-semibold text-xl text-brand-dark-text mb-3">Online Referral Form</h3>
                 <p className="text-brand-dark-text/80 mb-4">
-                  Submit referrals quickly and securely through our online portal.
+                  Submit referrals quickly and securely through our online portal (Coming Soon).
                 </p>
-                <Button className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 w-full md:w-auto" asChild>
-                  <Link href="/referral">
-                    <Send className="w-4 h-4 mr-2" /> Submit Online Referral
-                  </Link>
+                <Button className="bg-brand-merlot text-brand-cream hover:bg-brand-merlot/90 w-full md:w-auto" disabled>
+                  <Send className="w-4 h-4 mr-2" /> Online Referral (Coming Soon)
                 </Button>
               </div>
               <div>

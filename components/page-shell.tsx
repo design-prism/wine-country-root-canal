@@ -39,12 +39,11 @@ export function PageShell({
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                width: "177.77vh", // 16:9 aspect ratio width based on viewport height
-                height: "100vh",
-                minWidth: "100vw",
-                minHeight: "56.25vw", // 16:9 aspect ratio height based on viewport width
+                width: "auto",
+                height: "auto",
+                minWidth: "100%",
+                minHeight: "100%",
                 transform: "translate(-50%, -50%)",
-                pointerEvents: "none",
               }}
             ></iframe>
           </div>
@@ -87,24 +86,12 @@ export function PageShell({
       )}
 
       {!hideTitleSection && !heroImageUrl && !heroVimeoVideoId && !heroContent && (
-        <section className="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream/50 py-16 md:py-20 text-center border-b border-brand-cream overflow-hidden">
-          {/* Subtle pattern overlay */}
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(139, 69, 19, 0.3) 1px, transparent 0)`,
-            backgroundSize: '24px 24px'
-          }}></div>
-          
-          <FadeInSection className="relative z-10">
-            <div className="container mx-auto px-4 md:px-6">
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-brand-merlot mb-6 leading-tight animate-fade-in">{title}</h1>
-              {description && (
-                <p className="text-lg md:text-xl text-brand-dark-text/80 max-w-3xl mx-auto leading-relaxed animate-fade-in">
-                  {description}
-                </p>
-              )}
-            </div>
-          </FadeInSection>
-        </section>
+        <FadeInSection className="bg-white py-12 md:py-16 text-center border-b border-brand-cream">
+          <div className="container mx-auto px-4 md:px-6">
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-brand-merlot mb-3">{title}</h1>
+            {description && <p className="text-lg text-brand-dark-text/80 max-w-2xl mx-auto">{description}</p>}
+          </div>
+        </FadeInSection>
       )}
 
       <div
